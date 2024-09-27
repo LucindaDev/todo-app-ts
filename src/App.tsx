@@ -6,7 +6,7 @@ import { Footer } from "./components/Footer"
 import { Header } from "./components/header"
 import { ListOfTodos } from "./types"
 
-const storage = JSON.parse(localStorage.getItem('TODOS') || '{}');
+const storage = JSON.parse(localStorage.getItem('TODOS') || '[]');
 console.log(storage)
 const localStorageTodos: ListOfTodos = storage
 
@@ -22,7 +22,7 @@ function App() {
   }
 
   const handleRemoveAllCompleted = (): void =>{
-    const newTodos = todos.filter (todo => !todo.completed)
+    const newTodos = todos.filter(todo => !todo.completed)
     localStorage.setItem("TODOS", JSON.stringify(newTodos))
 
     setTodos(newTodos)
